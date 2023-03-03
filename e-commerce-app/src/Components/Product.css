@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+}
+#my-cart{
+    margin-left: 200px;
+    background-color: #485563;
+    padding: 0.7rem 2rem;
+    text-align: right;
+    color: white;
+    font-weight: bold;
+
+}
+#my-cart span {
+    cursor: pointer;
+}
+#my-cart span:hover{
+    opacity: 0.3;
+    border-style: dashed;
+    border: 1px solid white;
+    padding: 0.4rem;
+    
+
+}
+#filter{
+    height: 100%;
+    width:200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: linear-gradient(#29323c , #485563);
+
+}
+.filters{
+    /* width:150px; */
+    color: white;
+    padding: 1rem 0.5rem;
+    background: linear-gradient(#09203f , #537895);
+    margin: 0.7rem 0.6rem;
+    border-radius: 2px;
+}
+h5{
+    letter-spacing: 1px;
+}
+.filters p{
+    padding: 0.3rem 0;
+}
+#price-filter h5{
+    padding: 0.5rem 0;
+}
+#price-range{
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+#price-range input{
+    width: 70px;
+    padding: 0.3rem 0;
+    outline: none;
+}
+#price-btn{
+    text-align: center;
+    padding: 0.5rem 0;
+}
+#price-btn button{
+    background-color:#0b1f2e;
+    color: white;
+    padding: 0.3rem 2rem;
+    border: none;
+    transition: 0.5s;
+    cursor: pointer;
+    
+}
+
+.cards{
+    margin-left: 200px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 0.5rem;
+}
+img{
+    height: 200px;
+    border-radius: 1rem;
+}
+
+.card{
+    margin: 1rem;
+    /* width:200px ; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    border-radius: 1rem;
+    background: linear-gradient(#93a5cf , #e4efe9);
+}
+.card .details{
+    padding: 1rem;
+}
+.details p{
+    padding: 0.2rem 0;
+    color: rgb(77, 76, 76);
+}
+#price{
+    color: rgb(33, 168, 33);
+}
+#cart-btn {
+    text-align: center;
+    padding: 0.7rem 0;
+}
+#cart-btn button{
+    background-color: black;
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+button:hover{
+    opacity: 0.4;
+}
+#alert{
+    height: 50px;
+    position: fixed;
+    top:50%;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: green;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    color: white;
+}
