@@ -1,6 +1,7 @@
 import Axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Card from "./Card"
 import "./Product.css"
 function Products(){
     const [products,setProducts] = useState()
@@ -20,7 +21,7 @@ function Products(){
             if(price.from && price.to){
                 for(let i=0;i<product.length;i++){
                     if(parseInt(price.from) <=  product[i].price && parseInt(price.to) >=  product[i].price){
-                        console.log(price.to)
+                        // console.log(price.to)
                         temp.push(product[i])
                     }
                 }
@@ -107,30 +108,7 @@ function Products(){
         getProducts()
        
     }
-    const addToCart = (id) =>{
-        if(localStorage.getItem("cart")){
-            let cart = JSON.parse(localStorage.getItem("cart"))
-            if(cart.indexOf(id) !== -1){
-                setMessage('Product already in the cart.')
-                setTimeout(()=>{
-                    setMessage('')
-                },3000)
-                
-            }else{
-                cart.push(id)
-                localStorage.setItem("cart",JSON.stringify(cart))
-                setMessage('Product added to The cart')
-                setTimeout(()=>{
-                    setMessage('')
-                },3000)
-                
-            }
-        }else{
-            let cart = [id]
-            localStorage.setItem("cart",JSON.stringify(cart))
-            
-        }
-    }
+    
     return <div id="product-container">
         {message?<h1 id="alert">{message}</h1>:""}
         <div id="my-cart">
@@ -189,30 +167,7 @@ function Products(){
             </div>
 
         </div>
-        <div className="cards">
-            {products && products.map((item)=>{
-                return <div className="card" key={item.id}>
-                <img width="100%" 
-                    src={item.image}
-                    alt={item.title}
-                />
-                <div className="details">
-                <h3>{item.title}</h3>
-                <p>Brand : {item.brand}</p>
-                <p>Category : {item.category}</p>
-                <p id="price">Price : {item.price}</p>
-                <div id="cart-btn">
-                    <button onClick={()=>addToCart(item.id)}>Add To Cart</button>
-                </div>
-
-                
-                </div>
-                
-            </div>
-            })}
-            
-            
-        </div>
+        <Card products={products} setMessage={setMessage}/>
 
     </div>
 }
