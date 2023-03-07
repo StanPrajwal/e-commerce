@@ -15,13 +15,10 @@ function Products(){
        
         Axios.get("https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products")
         .then(res=>{
-            // console.log(price.from && price.to)
             let product = res.data.data
             let temp = []
             if(price.from && price.to){
-                
                 for(let i=0;i<product.length;i++){
-                    
                     if(parseInt(price.from) <=  product[i].price && parseInt(price.to) >=  product[i].price){
                         console.log(price.to)
                         temp.push(product[i])
@@ -33,8 +30,6 @@ function Products(){
             }else{
                 setProducts(res.data.data)
             }
-            
-            // console.log(res.data.data)
             let brandmap = new Map()
             
             let Brands = []
@@ -58,7 +53,7 @@ function Products(){
     }
     useEffect(()=>{
         getAllProducts()
-     },[])
+    },[])
     function getProducts(){
         console.log(filters)
         if(filters.size){
@@ -88,7 +83,7 @@ function Products(){
             })
             .catch(err=>alert("Server is not responding"))
         }else{
-            console.log("get ALL")
+            // console.log("get ALL")
             getAllProducts()
         }
        
@@ -119,7 +114,7 @@ function Products(){
                 setMessage('Product already in the cart.')
                 setTimeout(()=>{
                     setMessage('')
-                },5000)
+                },3000)
                 
             }else{
                 cart.push(id)
@@ -127,7 +122,7 @@ function Products(){
                 setMessage('Product added to The cart')
                 setTimeout(()=>{
                     setMessage('')
-                },5000)
+                },3000)
                 
             }
         }else{

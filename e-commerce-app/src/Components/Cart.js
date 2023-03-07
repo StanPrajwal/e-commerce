@@ -14,10 +14,10 @@ function Cart() {
       `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products/${id}`
     )
       .then((res) => {
-        console.log(res)
+        // console.log(res)
         if (!cartmap.has(id)) {
             cartmap.set(id, res.data.data);
-            console.log("totllllll")
+            // console.log("totllllll")
             setTotal(prev=>prev+res.data.data.price)
             setCartData((cartData) => {
                 return [...cartData, res.data.data];
@@ -37,7 +37,7 @@ function Cart() {
     }
   }, []);
  
-  console.log(cartData);
+  // console.log(cartData);
   function removerCart(id){
     let cart = JSON.parse(localStorage.getItem("cart"))
     let temp = []
@@ -47,6 +47,12 @@ function Cart() {
         }
     }
     localStorage.setItem("cart",JSON.stringify(temp))
+    let cartTemp = cartData.filter((data)=>{
+      if(data.id !== id){
+        return data
+      }
+    })
+    setCartData(cartTemp)
     
   }
   return (
@@ -71,7 +77,7 @@ function Cart() {
                   <p id="price">Price : {item.price}</p>
                   <div className="remove-btn">
                     <button onClick={()=>removerCart(item.id)}>
-                        Delete
+                      Delete
                     </button>
                   </div>
                 </div>
