@@ -2,7 +2,7 @@ import Axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Card from "./Card"
-import "./Product.css"
+import "./styles/Product.css"
 function Products(){
     const [products,setProducts] = useState()
     console.log(products)
